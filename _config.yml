@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
+title: 槟糖's Blog
+subtitle: 
+description: 记录工作、学习经历，生活点滴！
+keywords: NLP, AI, Machine Learning, Recommender System
+author: Rabin Tang
+language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://rabin.tech
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -72,8 +72,9 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+plugins: hexo-generate-feed
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
