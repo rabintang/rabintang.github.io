@@ -22,9 +22,9 @@ date: 2018-12-20 10:09:42
 
 * **用户行为**：利用标准的ALS算法，学习得到每个商品基于用户行为数据的表达；
 * **文本数据**：作者利用TextCNN训练了一个其业务内的文本分类器，然后将商品的标题和描述过一遍该分类器，将网络的顶层（应该是softmax的前一层）拎出来作为文本的embedding向量；
-    ```
-    作者这里采用监督学习算法得到文本的embedding表达，相比通过avg(word embedding)得到的embedding表达，效果应该会要好一些，但是选择哪个业务的文本分类模型，也是一个比较偏实际应用的问题。
-    ```
+
+    > 作者这里采用监督学习算法得到文本的embedding表达，相比通过avg(word embedding)得到的embedding表达，效果应该会要好一些，但是选择哪个业务的文本分类模型，也是一个比较偏实际应用的问题。
+
 * **图像数据**：这个比较有亮点，作者不是采用常规的做法，用图像类标作为监督的目标，而是将商品的标题通过word embedding得到title embedding之后，训练模型，用图像来预测该title embedding，从而学到图像更丰富的表达。作者对这种做法的解释是：标题描述给出了更丰富的信息，比如`wedding dress` vs `summer dress`，假如用类标`dress`，则无法对这种细节信息进行区分。作者用预训练好的Inception-v3作为网络结构，用MSE作为Loss Function；
 * **位置信息**：作者没有采用LBS的距离信息来表示embedding，而是通过`user-postcode`行为矩阵，通过ALS学习位置的embedding表达；
 
