@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  848
+                  853
                 </span>
               
 
@@ -658,7 +658,8 @@
           
 这是一篇持续更新的博客，主要记录推荐系统优化过程中与效果评估相关的topic。
 
-点击率+曝光量曲线衡量算法整体效果这个方法来自hulu周涵宁的分享，也是在工业界使用较多的一种方法，是从整体上评估算法表现的一种方法。如下图所示，作者选取了某个月，曝光量较大的视频进行展示，其中，横坐标是视频的曝光量，纵坐标是视频的统计点击率。
+点击率+曝光量曲线衡量算法整体效果
+这个方法来自hulu周涵宁的分享，也是在工业界使用较多的一种方法，是从整体上评估算法表现的一种方法。如下图所示，作者选取了某个月，曝光量较大的视频进行展示，其中，横坐标是视频的曝光量，纵坐标是视频的统计点击率。
 
 从上图看出，曝光量大的视频，点击率也较高，整体上呈现正相关性，因此可以说明推荐系统大多数情况下都做出了正确的选择。但是，我们也发现有一个视频出现在上图的右下角的位置，这个就是当前算法没有做好的地方，也是后续的优化点。
 
@@ -865,7 +866,8 @@
 论文作者来自一家电商公司，主要论述了三种方法在推荐系统线上应用的效果：结合商品内容以及用户行为的商品embedding学习；利用前面学习到的商品的embedding表达，结合RNN的用户行为序列建模；以及利用MAB来实现的reranking（其实没有看到探索的介绍，很简单）。论文整体上质量一般，比较有亮点的地方就是学习图像embedding的方法，以及采用Siamese Network的使用。
 
 商品embedding表示学习
-作者先用不同的submodel分别得到商品基于行为、文本、图像，以及位置的embedding，然后将各种来源的embedding concat在一起，然后接了一个a
+
+作者先用不同的submodel分别得到商品基于行为、文本、图像，以及位置的embedding，然后将各种来源的embedding concat在一起，然后接了一个
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1054,18 +1056,15 @@
       
         
           
-          hexo的配置与使用hexo的基础用法
-hexo的安装
-  12$ brew install node$ npm install -g hexo-cli
+          hexo的配置与使用
+hexo的基础用法
 
-hexo博客站点搭建
-  1234$ hexo init blog  # 创建名为blog的博客站点$ cd blog$ hexo new [draft/post/page] name  # 新建名为name的草稿/文章/页面，默认为post$ hexo g &amp; hexo s  # 生成静态网页并启动本地服务器，之后便可以通过http://localhost:4000/访问
-
+hexo的安装 12$ brew install node$ npm install -g hexo-cli
+hexo博客站点搭建 1234$ hexo init blog  # 创建名为blog的博客站点$ cd blog$ hexo new [draft/post/page] name  # 新建名为name的草稿/文章/页面，默认为post$ hexo g &amp; hexo s  # 生成静态网页并启动本地服务器，之后便可以通过http://localhost:4000/访问
 
 hexo的主题设置
-推荐next主题，简洁且经典
 
-下
+推荐next主题，简洁且经典 1. 下载
           ...
           <!--noindex-->
           <div class="post-button text-center">
