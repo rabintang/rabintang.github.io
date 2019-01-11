@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -85,15 +85,18 @@
 
 
 
+<meta name="description" content="记录工作、学习经历，生活点滴！">
 <meta name="keywords" content="NLP, AI, Machine Learning, Recommender System">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于我">
 <meta property="og:url" content="http://rabin.tech/about/index.html">
 <meta property="og:site_name" content="槟糖&#39;s Blog">
+<meta property="og:description" content="记录工作、学习经历，生活点滴！">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-22T04:11:45.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于我">
+<meta name="twitter:description" content="记录工作、学习经历，生活点滴！">
 
 
 
@@ -129,7 +132,7 @@
 
 
 
-  <title>关于我 | 槟糖's Blog</title>
+  <title>关于我 | 槟糖's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -148,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -310,7 +313,6 @@
         
         
           
-
         
       </div>
       
@@ -1056,7 +1058,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
