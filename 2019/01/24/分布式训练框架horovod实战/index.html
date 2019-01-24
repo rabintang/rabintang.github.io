@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="推荐系统,论文笔记,">
+  <meta name="keywords" content="工具,horovod,分布式,">
 
 
 
@@ -85,21 +85,18 @@
 
 
 
-<meta name="description" content="作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过self-attention对用户近期行为的item建模，然后对attention后的向量集合求mean得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；">
-<meta name="keywords" content="推荐系统,论文笔记">
+<meta name="description" content="Horovod简介Horovod安装1. 安装Open MPImpiexec —version  下载Open MPI安装包，建议安装open-mpi 4.0及以上版本； 执行以下命令安装：   12345tar -zvxf openmpi-4.0.0.tar.gzcd openmpi-4.0.0./configure --prefix=/usr/localsudo make all instal">
+<meta name="keywords" content="工具,horovod,分布式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Next Item Recommendation with Self-Attention》阅读笔记">
-<meta property="og:url" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/index.html">
+<meta property="og:title" content="分布式训练框架horovod实战">
+<meta property="og:url" content="http://rabin.tech/2019/01/24/分布式训练框架horovod实战/index.html">
 <meta property="og:site_name" content="槟糖&#39;s Blog">
-<meta property="og:description" content="作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过self-attention对用户近期行为的item建模，然后对attention后的向量集合求mean得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；">
+<meta property="og:description" content="Horovod简介Horovod安装1. 安装Open MPImpiexec —version  下载Open MPI安装包，建议安装open-mpi 4.0及以上版本； 执行以下命令安装：   12345tar -zvxf openmpi-4.0.0.tar.gzcd openmpi-4.0.0./configure --prefix=/usr/localsudo make all instal">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104082656696.png">
-<meta property="og:image" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104100908572.png">
-<meta property="og:updated_time" content="2019-01-11T02:09:16.671Z">
+<meta property="og:updated_time" content="2019-01-24T07:33:32.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Next Item Recommendation with Self-Attention》阅读笔记">
-<meta name="twitter:description" content="作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过self-attention对用户近期行为的item建模，然后对attention后的向量集合求mean得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；">
-<meta name="twitter:image" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104082656696.png">
+<meta name="twitter:title" content="分布式训练框架horovod实战">
+<meta name="twitter:description" content="Horovod简介Horovod安装1. 安装Open MPImpiexec —version  下载Open MPI安装包，建议安装open-mpi 4.0及以上版本； 执行以下命令安装：   12345tar -zvxf openmpi-4.0.0.tar.gzcd openmpi-4.0.0./configure --prefix=/usr/localsudo make all instal">
 
 
 
@@ -129,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/">
+  <link rel="canonical" href="http://rabin.tech/2019/01/24/分布式训练框架horovod实战/">
 
 
 
 
 
-  <title>《Next Item Recommendation with Self-Attention》阅读笔记 | 槟糖's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>分布式训练框架horovod实战 | 槟糖's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -310,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/">
+    <link itemprop="mainEntityOfPage" href="http://rabin.tech/2019/01/24/分布式训练框架horovod实战/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rabin Tang">
@@ -327,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">《Next Item Recommendation with Self-Attention》阅读笔记</h2>
+          <h2 class="post-title" itemprop="name headline">分布式训练框架horovod实战</h2>
         
 
         <div class="post-meta">
@@ -339,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T10:09:16+08:00">
-                2019-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-24T15:33:32+08:00">
+                2019-01-24
               </time>
             
 
@@ -362,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐系统/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐系统</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -373,8 +370,8 @@
                 
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐系统/论文阅读/" itemprop="url" rel="index">
-                    <span itemprop="name">论文阅读</span>
+                  <a href="/categories/机器学习/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -391,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/" itemprop="commentCount"></span>
+                <a href="/2019/01/24/分布式训练框架horovod实战/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/24/分布式训练框架horovod实战/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  843
+                  472
                 </span>
               
 
@@ -435,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -456,30 +453,34 @@
       
 
       
-        <blockquote>
-<p>作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过<code>self-attention</code>对用户近期行为的item建模，然后对attention后的向量集合求<code>mean</code>得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；3. 在计算用户与item距离时，作者采用欧式距离而没有采用内积，因为内积不满足<code>important inequality property</code>。</p>
-</blockquote>
-<h4 id="短期兴趣建模与Self-Attention-Module"><a href="#短期兴趣建模与Self-Attention-Module" class="headerlink" title="短期兴趣建模与Self-Attention Module"></a>短期兴趣建模与Self-Attention Module</h4><p>作者通过用户近期的行为序列来建模用户的短期兴趣向量，并通过<code>Self-Attention</code>对行为序列进行建模。<code>Self-Attention</code>计算用户短期兴趣向量的公式如下：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-Q' &= ReLU(X_t^uW_Q) \tag 1 \\
-K' &= ReLU(X_t^uW_K) \tag 2 \\
-s_t^u &= softmax(\frac{Q'K'^T}{\sqrt{d}}) \tag 3 \\
-a_t^u &= s_t^uX_t^u \tag 4 \\
-m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
-\end{align}</script><p>其中，$ X_t^u \in R^{L \times d} $是用户行为序列通过item的embedding词表映射得到的embedding矩阵，$ W_Q, W_K $是$ d \times d $维的权重矩阵，所有用户共享该矩阵，$ m_t^u $即是得到的用户兴趣向量。网络结构如下图：</p>
-<p><img src="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104082656696.png" alt=""></p>
+        <h3 id="Horovod简介"><a href="#Horovod简介" class="headerlink" title="Horovod简介"></a>Horovod简介</h3><h3 id="Horovod安装"><a href="#Horovod安装" class="headerlink" title="Horovod安装"></a>Horovod安装</h3><h5 id="1-安装Open-MPI"><a href="#1-安装Open-MPI" class="headerlink" title="1. 安装Open MPI"></a>1. 安装Open MPI</h5><p>mpiexec —version</p>
 <ul>
-<li>相比于传统的<code>attention</code>只能利用全局上下文来学习表达，<code>self-attention</code>可以挖掘序列中两两之间的关系;</li>
-<li>$Q’K’^T$除以$\sqrt{d}$同Google的《Attention is all your need》的做法，可以有效缓解当向量维度过大时，容易导致激活值进入softmax饱和区的问题；</li>
-<li>另外，作者还在计算softmax前先掩掉$Q’K’^T$得到的矩阵对角线值，以避免对角线上item自身的内积分配过大的权重；</li>
-<li>最后，作者在embedding乘上attention权重后，直接将embedding在序列维度求平均，作为用户短期兴趣向量；</li>
+<li>下载<a href="https://www.open-mpi.org/software/ompi/v4.0/" target="_blank" rel="noopener">Open MPI</a>安装包，建议安装open-mpi 4.0及以上版本；</li>
+<li><p>执行以下命令安装：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf openmpi-4.0.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> openmpi-4.0.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br><span class="line">sudo make all install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>ompi_info</code>命令查看Open MPI版本信息；</p>
+</li>
 </ul>
-<h4 id="长期兴趣建模"><a href="#长期兴趣建模" class="headerlink" title="长期兴趣建模"></a>长期兴趣建模</h4><p>长期兴趣的建模比较简单，用随机初始化的embedding表达用户长期兴趣，然后通过网络学习用户和item的embedding，这里item的embedding是从随机初始值开始学，并不是短期兴趣建模里面的item embedding。</p>
-<h4 id="模型框架"><a href="#模型框架" class="headerlink" title="模型框架"></a>模型框架</h4><p>作者通过欧氏距离计算item embedding与user embedding的距离作为得分，最终得分由长短期得分通过加权方式组成，公式如下：</p>
-<script type="math/tex; mode=display">y_{t+1}^u = w||U_u - V_{H_{t+1}^u}||_2^2 + (1-w)||m_t^u - X_{t+1}^u||_2^2</script><p>其中，$ U<em>u $是用户长期兴趣向量，$ V</em>{H<em>{t+1}^u} $是长期兴趣部分对应的item向量，$ m_t^u $是用户在t时刻的短期兴趣向量，$ X</em>{t+1}^u $是短期兴趣部分对应的item向量。网络结构如下图：</p>
-<p><img src="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104100908572.png" alt=""></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>整个模型比较简单，在召回场景下还是比较好用的。Long-term Preference也可以用考虑换成长期行为序列，通过embedding mean的方式应该也能获得不错的效果。这里作者只用了用户行为序列，item的属性，context信息，user的其他属性都没有使用，可以考虑拿进来，辅助新item和新user的建模。</p>
+<h5 id="2-GPU机器安装NCCL"><a href="#2-GPU机器安装NCCL" class="headerlink" title="2. GPU机器安装NCCL"></a>2. GPU机器安装NCCL</h5><ul>
+<li>从Nvidia官网下载<a href="https://developer.nvidia.com/nccl" target="_blank" rel="noopener">NCCL</a>，这里下载相应cuda版本的NCCL deb安装包；</li>
+<li>执行以下命令安装：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i nccl-repo-&lt;version&gt;.deb</span><br><span class="line">sudo apt install libnccl2=2.3.7-1+cuda9.0 libnccl-dev=2.3.7-1+cuda9.0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="3-安装horovod"><a href="#3-安装horovod" class="headerlink" title="3. 安装horovod"></a>3. 安装horovod</h5><ul>
+<li>CPU机器直接执行：<code>pip install --no-cache-dir horovod</code>；</li>
+<li>GPU机器执行：<code>HOROVOD_GPU_ALLREDUCE=NCCL pip install --no-cache-dir horovod</code>；</li>
+</ul>
+<h5 id="4-问题与解决方案"><a href="#4-问题与解决方案" class="headerlink" title="4. 问题与解决方案"></a>4. 问题与解决方案</h5><ol>
+<li><strong>ERROR</strong>：mpicxx: error while loading shared libraries: libopen-pal.so.40: cannot open shared object file: No such file or directory<br><strong>Solution</strong>：执行<code>sudo ldconfig</code>，更新链接库缓存</li>
+<li>horovod项目也提供了一个<a href="https://github.com/uber/horovod/blob/master/docs/troubleshooting.md" target="_blank" rel="noopener">常见问题列表</a>，还是很贴心的；</li>
+</ol>
+<h3 id="Horovod使用"><a href="#Horovod使用" class="headerlink" title="Horovod使用"></a>Horovod使用</h3><h5 id="1-示例代码"><a href="#1-示例代码" class="headerlink" title="1. 示例代码"></a>1. 示例代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import horovod.tensorflow as hvd</span><br><span class="line"></span><br><span class="line">def _model_fn(features, labels, mode, params, config):</span><br><span class="line">    ...</span><br><span class="line">    optimizer = tf.train.AdagradOptimizer(0.01 * hvd.size())</span><br><span class="line">    optimizer = hvd.DistributedOptimizer(optimizer)</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">hvd.init()</span><br><span class="line">sess_config = tf.ConfigProto()</span><br><span class="line">sess_config.gpu_options.visible_device_list = str(hvd.local_rank())</span><br><span class="line">model_config = tf.estimator.RunConfig(session_config=sess_config)</span><br><span class="line">model_dir = model_dir if hvd.rank() == 0 else None</span><br><span class="line">model = tf.estimator.Estimator(</span><br><span class="line">        model_fn=_model_fn,</span><br><span class="line">        model_dir=model_dir,</span><br><span class="line">        config=model_config,</span><br><span class="line">        params=model_params</span><br><span class="line">    )</span><br><span class="line">hooks = [hvd.BroadcastGlobalVariablesHook(0)]</span><br><span class="line">model.train(input_fn=input_fn, steps=max_train_steps // hvd.size(), hooks=hooks)</span><br></pre></td></tr></table></figure>
+<h5 id="2-注意事项"><a href="#2-注意事项" class="headerlink" title="2. 注意事项"></a>2. 注意事项</h5><ul>
+<li>horovod是基于MPI和ring-allreduce算法来实现的分布式计算框架，是基于数据并行的分布式框架，因此，要注意切分在每个worker上的训练数据，horovod自身不支持数据切分；</li>
+<li>要确保每个worker的迭代步数相当，或者迭代所有worker的最小步数，否则在计算平均梯度时，会出错；</li>
+</ul>
+<h5 id="3-加速比"><a href="#3-加速比" class="headerlink" title="3. 加速比"></a>3. 加速比</h5><p>在美拍热门CTR数据上进行评测，原单卡100步耗时3S+，现在单机4卡，每块卡100步耗时8S+，加速比（多卡并行时间/单卡运行时间）1.6，而并行效率（加速比/并行度）才0.39。</p>
 
       
     </div>
@@ -500,7 +501,7 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/" title="《Next Item Recommendation with Self-Attention》阅读笔记">http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/</a>
+    <a href="http://rabin.tech/2019/01/24/分布式训练框架horovod实战/" title="分布式训练框架horovod实战">http://rabin.tech/2019/01/24/分布式训练框架horovod实战/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -515,9 +516,11 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
       
         <div class="post-tags">
           
-            <a href="/tags/推荐系统/" <i="" class="fa fa-tag"> 推荐系统</a>
+            <a href="/tags/工具/" <i="" class="fa fa-tag"> 工具</a>
           
-            <a href="/tags/论文笔记/" <i="" class="fa fa-tag"> 论文笔记</a>
+            <a href="/tags/horovod/" <i="" class="fa fa-tag"> horovod</a>
+          
+            <a href="/tags/分布式/" <i="" class="fa fa-tag"> 分布式</a>
           
         </div>
       
@@ -530,8 +533,8 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/08/推荐系统实战-算法效果衡量/" rel="next" title="推荐系统实战-算法效果衡量">
-                <i class="fa fa-chevron-left"></i> 推荐系统实战-算法效果衡量
+              <a href="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/" rel="next" title="《Next Item Recommendation with Self-Attention》阅读笔记">
+                <i class="fa fa-chevron-left"></i> 《Next Item Recommendation with Self-Attention》阅读笔记
               </a>
             
           </div>
@@ -539,10 +542,6 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/24/分布式训练框架horovod实战/" rel="prev" title="分布式训练框架horovod实战">
-                分布式训练框架horovod实战 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -707,7 +706,7 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#短期兴趣建模与Self-Attention-Module"><span class="nav-number">1.</span> <span class="nav-text">短期兴趣建模与Self-Attention Module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长期兴趣建模"><span class="nav-number">2.</span> <span class="nav-text">长期兴趣建模</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模型框架"><span class="nav-number">3.</span> <span class="nav-text">模型框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Horovod简介"><span class="nav-number">1.</span> <span class="nav-text">Horovod简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Horovod安装"><span class="nav-number">2.</span> <span class="nav-text">Horovod安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-安装Open-MPI"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 安装Open MPI</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-GPU机器安装NCCL"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. GPU机器安装NCCL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-安装horovod"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. 安装horovod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-问题与解决方案"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. 问题与解决方案</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#Horovod使用"><span class="nav-number">3.</span> <span class="nav-text">Horovod使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-示例代码"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. 示例代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-注意事项"><span class="nav-number">3.0.2.</span> <span class="nav-text">2. 注意事项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-加速比"><span class="nav-number">3.0.3.</span> <span class="nav-text">3. 加速比</span></a></li></ol></li></div>
             
 
           </div>
@@ -907,9 +906,9 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/';
-          this.page.identifier = '2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/';
-          this.page.title = '《Next Item Recommendation with Self-Attention》阅读笔记';
+          this.page.url = 'http://rabin.tech/2019/01/24/分布式训练框架horovod实战/';
+          this.page.identifier = '2019/01/24/分布式训练框架horovod实战/';
+          this.page.title = '分布式训练框架horovod实战';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://rabintang.disqus.com/embed.js';

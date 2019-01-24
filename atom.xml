@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rabin.tech/"/>
-  <updated>2019-01-11T02:09:16.671Z</updated>
+  <updated>2019-01-24T07:33:32.637Z</updated>
   <id>http://rabin.tech/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分布式训练框架horovod实战</title>
+    <link href="http://rabin.tech/2019/01/24/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83%E6%A1%86%E6%9E%B6horovod%E5%AE%9E%E6%88%98/"/>
+    <id>http://rabin.tech/2019/01/24/分布式训练框架horovod实战/</id>
+    <published>2019-01-24T07:33:32.000Z</published>
+    <updated>2019-01-24T07:33:32.637Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Horovod简介"><a href="#Horovod简介" class="headerlink" title="Horovod简介"></a>Horovod简介</h3><h3 id="Horovod安装"><a href="#Horovod安装" class="headerlink" title="Horovod安装"></a>Horovod安装</h3><h5 id="1-安装Open-MPI"><a href="#1-安装Open-MPI" class="headerlink" title="1. 安装Open MPI"></a>1. 安装Open MPI</h5><p>mpiexec —version</p><ul><li>下载<a href="https://www.open-mpi.org/software/ompi/v4.0/" target="_blank" rel="noopener">Open MPI</a>安装包，建议安装open-mpi 4.0及以上版本；</li><li><p>执行以下命令安装：</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf openmpi-4.0.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> openmpi-4.0.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br><span class="line">sudo make all install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure></li><li><p>执行<code>ompi_info</code>命令查看Open MPI版本信息；</p></li></ul><h5 id="2-GPU机器安装NCCL"><a href="#2-GPU机器安装NCCL" class="headerlink" title="2. GPU机器安装NCCL"></a>2. GPU机器安装NCCL</h5><ul><li>从Nvidia官网下载<a href="https://developer.nvidia.com/nccl" target="_blank" rel="noopener">NCCL</a>，这里下载相应cuda版本的NCCL deb安装包；</li><li>执行以下命令安装：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i nccl-repo-&lt;version&gt;.deb</span><br><span class="line">sudo apt install libnccl2=2.3.7-1+cuda9.0 libnccl-dev=2.3.7-1+cuda9.0</span><br></pre></td></tr></table></figure></li></ul><h5 id="3-安装horovod"><a href="#3-安装horovod" class="headerlink" title="3. 安装horovod"></a>3. 安装horovod</h5><ul><li>CPU机器直接执行：<code>pip install --no-cache-dir horovod</code>；</li><li>GPU机器执行：<code>HOROVOD_GPU_ALLREDUCE=NCCL pip install --no-cache-dir horovod</code>；</li></ul><h5 id="4-问题与解决方案"><a href="#4-问题与解决方案" class="headerlink" title="4. 问题与解决方案"></a>4. 问题与解决方案</h5><ol><li><strong>ERROR</strong>：mpicxx: error while loading shared libraries: libopen-pal.so.40: cannot open shared object file: No such file or directory<br><strong>Solution</strong>：执行<code>sudo ldconfig</code>，更新链接库缓存</li><li>horovod项目也提供了一个<a href="https://github.com/uber/horovod/blob/master/docs/troubleshooting.md" target="_blank" rel="noopener">常见问题列表</a>，还是很贴心的；</li></ol><h3 id="Horovod使用"><a href="#Horovod使用" class="headerlink" title="Horovod使用"></a>Horovod使用</h3><h5 id="1-示例代码"><a href="#1-示例代码" class="headerlink" title="1. 示例代码"></a>1. 示例代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import horovod.tensorflow as hvd</span><br><span class="line"></span><br><span class="line">def _model_fn(features, labels, mode, params, config):</span><br><span class="line">    ...</span><br><span class="line">    optimizer = tf.train.AdagradOptimizer(0.01 * hvd.size())</span><br><span class="line">    optimizer = hvd.DistributedOptimizer(optimizer)</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">hvd.init()</span><br><span class="line">sess_config = tf.ConfigProto()</span><br><span class="line">sess_config.gpu_options.visible_device_list = str(hvd.local_rank())</span><br><span class="line">model_config = tf.estimator.RunConfig(session_config=sess_config)</span><br><span class="line">model_dir = model_dir if hvd.rank() == 0 else None</span><br><span class="line">model = tf.estimator.Estimator(</span><br><span class="line">        model_fn=_model_fn,</span><br><span class="line">        model_dir=model_dir,</span><br><span class="line">        config=model_config,</span><br><span class="line">        params=model_params</span><br><span class="line">    )</span><br><span class="line">hooks = [hvd.BroadcastGlobalVariablesHook(0)]</span><br><span class="line">model.train(input_fn=input_fn, steps=max_train_steps // hvd.size(), hooks=hooks)</span><br></pre></td></tr></table></figure><h5 id="2-注意事项"><a href="#2-注意事项" class="headerlink" title="2. 注意事项"></a>2. 注意事项</h5><ul><li>horovod是基于MPI和ring-allreduce算法来实现的分布式计算框架，是基于数据并行的分布式框架，因此，要注意切分在每个worker上的训练数据，horovod自身不支持数据切分；</li><li>要确保每个worker的迭代步数相当，或者迭代所有worker的最小步数，否则在计算平均梯度时，会出错；</li></ul><h5 id="3-加速比"><a href="#3-加速比" class="headerlink" title="3. 加速比"></a>3. 加速比</h5><p>在美拍热门CTR数据上进行评测，原单卡100步耗时3S+，现在单机4卡，每块卡100步耗时8S+，加速比（多卡并行时间/单卡运行时间）1.6，而并行效率（加速比/并行度）才0.39。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Horovod简介&quot;&gt;&lt;a href=&quot;#Horovod简介&quot; class=&quot;headerlink&quot; title=&quot;Horovod简介&quot;&gt;&lt;/a&gt;Horovod简介&lt;/h3&gt;&lt;h3 id=&quot;Horovod安装&quot;&gt;&lt;a href=&quot;#Horovod安装&quot; class
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://rabin.tech/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="工具" scheme="http://rabin.tech/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://rabin.tech/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="horovod" scheme="http://rabin.tech/tags/horovod/"/>
+    
+      <category term="分布式" scheme="http://rabin.tech/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>《Next Item Recommendation with Self-Attention》阅读笔记</title>
@@ -104,9 +135,9 @@
     
       <category term="推荐系统" scheme="http://rabin.tech/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
     
-      <category term="论文笔记" scheme="http://rabin.tech/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="工程实现" scheme="http://rabin.tech/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E7%8E%B0/"/>
+    
+      <category term="论文笔记" scheme="http://rabin.tech/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

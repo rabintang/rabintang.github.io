@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="推荐系统,论文笔记,">
+  <meta name="keywords" content="自然语言处理（NLP）, 机器学习（Machine Learning）, 人工智能（AI）, 推荐系统（Recommeder System）">
 
 
 
@@ -85,21 +85,17 @@
 
 
 
-<meta name="description" content="作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过self-attention对用户近期行为的item建模，然后对attention后的向量集合求mean得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；">
-<meta name="keywords" content="推荐系统,论文笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="《Next Item Recommendation with Self-Attention》阅读笔记">
-<meta property="og:url" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/index.html">
+<meta name="description" content="记录工作、学习经历，生活点滴！">
+<meta name="keywords" content="NLP, AI, Machine Learning, Recommender System">
+<meta property="og:type" content="website">
+<meta property="og:title" content="槟糖&#39;s Blog">
+<meta property="og:url" content="http://rabin.tech/tags/horovod/index.html">
 <meta property="og:site_name" content="槟糖&#39;s Blog">
-<meta property="og:description" content="作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过self-attention对用户近期行为的item建模，然后对attention后的向量集合求mean得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；">
+<meta property="og:description" content="记录工作、学习经历，生活点滴！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104082656696.png">
-<meta property="og:image" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104100908572.png">
-<meta property="og:updated_time" content="2019-01-11T02:09:16.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Next Item Recommendation with Self-Attention》阅读笔记">
-<meta name="twitter:description" content="作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过self-attention对用户近期行为的item建模，然后对attention后的向量集合求mean得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；">
-<meta name="twitter:image" content="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104082656696.png">
+<meta name="twitter:title" content="槟糖&#39;s Blog">
+<meta name="twitter:description" content="记录工作、学习经历，生活点滴！">
 
 
 
@@ -129,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/">
+  <link rel="canonical" href="http://rabin.tech/tags/horovod/">
 
 
 
 
 
-  <title>《Next Item Recommendation with Self-Attention》阅读笔记 | 槟糖's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>标签: horovod | 槟糖's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -154,7 +150,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -296,273 +292,52 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>horovod<small>标签</small>
+        </h2>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rabin Tang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="槟糖's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2019/01/24/分布式训练框架horovod实战/" itemprop="url">
+              
+                <span itemprop="name">分布式训练框架horovod实战</span>
+              
+            </a>
         
-          <h2 class="post-title" itemprop="name headline">《Next Item Recommendation with Self-Attention》阅读笔记</h2>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T10:09:16+08:00">
-                2019-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐系统/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐系统</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐系统/论文阅读/" itemprop="url" rel="index">
-                    <span itemprop="name">论文阅读</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i> 阅读
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  843
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p>作者分别对用户的长期兴趣与短期兴趣建模，得到长期和短期兴趣向量，然后通过欧式距离，分别计算与候选item的得分，再通过加权的方式将长短期得分相加作为最终的排序得分。1. 作者通过<code>self-attention</code>对用户近期行为的item建模，然后对attention后的向量集合求<code>mean</code>得到用户的短期兴趣向量；2. 通过将用户和item通过另外一个embedding表达，来作为用户的长期兴趣建模；3. 在计算用户与item距离时，作者采用欧式距离而没有采用内积，因为内积不满足<code>important inequality property</code>。</p>
-</blockquote>
-<h4 id="短期兴趣建模与Self-Attention-Module"><a href="#短期兴趣建模与Self-Attention-Module" class="headerlink" title="短期兴趣建模与Self-Attention Module"></a>短期兴趣建模与Self-Attention Module</h4><p>作者通过用户近期的行为序列来建模用户的短期兴趣向量，并通过<code>Self-Attention</code>对行为序列进行建模。<code>Self-Attention</code>计算用户短期兴趣向量的公式如下：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-Q' &= ReLU(X_t^uW_Q) \tag 1 \\
-K' &= ReLU(X_t^uW_K) \tag 2 \\
-s_t^u &= softmax(\frac{Q'K'^T}{\sqrt{d}}) \tag 3 \\
-a_t^u &= s_t^uX_t^u \tag 4 \\
-m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
-\end{align}</script><p>其中，$ X_t^u \in R^{L \times d} $是用户行为序列通过item的embedding词表映射得到的embedding矩阵，$ W_Q, W_K $是$ d \times d $维的权重矩阵，所有用户共享该矩阵，$ m_t^u $即是得到的用户兴趣向量。网络结构如下图：</p>
-<p><img src="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104082656696.png" alt=""></p>
-<ul>
-<li>相比于传统的<code>attention</code>只能利用全局上下文来学习表达，<code>self-attention</code>可以挖掘序列中两两之间的关系;</li>
-<li>$Q’K’^T$除以$\sqrt{d}$同Google的《Attention is all your need》的做法，可以有效缓解当向量维度过大时，容易导致激活值进入softmax饱和区的问题；</li>
-<li>另外，作者还在计算softmax前先掩掉$Q’K’^T$得到的矩阵对角线值，以避免对角线上item自身的内积分配过大的权重；</li>
-<li>最后，作者在embedding乘上attention权重后，直接将embedding在序列维度求平均，作为用户短期兴趣向量；</li>
-</ul>
-<h4 id="长期兴趣建模"><a href="#长期兴趣建模" class="headerlink" title="长期兴趣建模"></a>长期兴趣建模</h4><p>长期兴趣的建模比较简单，用随机初始化的embedding表达用户长期兴趣，然后通过网络学习用户和item的embedding，这里item的embedding是从随机初始值开始学，并不是短期兴趣建模里面的item embedding。</p>
-<h4 id="模型框架"><a href="#模型框架" class="headerlink" title="模型框架"></a>模型框架</h4><p>作者通过欧氏距离计算item embedding与user embedding的距离作为得分，最终得分由长短期得分通过加权方式组成，公式如下：</p>
-<script type="math/tex; mode=display">y_{t+1}^u = w||U_u - V_{H_{t+1}^u}||_2^2 + (1-w)||m_t^u - X_{t+1}^u||_2^2</script><p>其中，$ U<em>u $是用户长期兴趣向量，$ V</em>{H<em>{t+1}^u} $是长期兴趣部分对应的item向量，$ m_t^u $是用户在t时刻的短期兴趣向量，$ X</em>{t+1}^u $是短期兴趣部分对应的item向量。网络结构如下图：</p>
-<p><img src="/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/markdown-img-paste-20190104100908572.png" alt=""></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>整个模型比较简单，在召回场景下还是比较好用的。Long-term Preference也可以用考虑换成长期行为序列，通过embedding mean的方式应该也能获得不错的效果。这里作者只用了用户行为序列，item的属性，context信息，user的其他属性都没有使用，可以考虑拿进来，辅助新item和新user的建模。</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    Rabin Tang
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/" title="《Next Item Recommendation with Self-Attention》阅读笔记">http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-24T15:33:32+08:00" content="2019-01-24">
+          01-24
+        </time>
       </div>
-    
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/推荐系统/" <i="" class="fa fa-tag"> 推荐系统</a>
-          
-            <a href="/tags/论文笔记/" <i="" class="fa fa-tag"> 论文笔记</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/01/08/推荐系统实战-算法效果衡量/" rel="next" title="推荐系统实战-算法效果衡量">
-                <i class="fa fa-chevron-left"></i> 推荐系统实战-算法效果衡量
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/24/分布式训练框架horovod实战/" rel="prev" title="分布式训练框架horovod实战">
-                分布式训练框架horovod实战 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -570,20 +345,6 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -604,17 +365,8 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -697,22 +449,6 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#短期兴趣建模与Self-Attention-Module"><span class="nav-number">1.</span> <span class="nav-text">短期兴趣建模与Self-Attention Module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长期兴趣建模"><span class="nav-number">2.</span> <span class="nav-text">长期兴趣建模</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模型框架"><span class="nav-number">3.</span> <span class="nav-text">模型框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -883,10 +619,6 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -904,18 +636,6 @@ m_t^u &= \frac{1}{L} \sum_{l=1}^{L}{a_{tl}^u} \tag 5
       <script id="dsq-count-scr" src="https://rabintang.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://rabin.tech/2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/';
-          this.page.identifier = '2019/01/11/《Next-Item-Recommendation-with-Self-Attention》阅读笔记/';
-          this.page.title = '《Next Item Recommendation with Self-Attention》阅读笔记';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://rabintang.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
